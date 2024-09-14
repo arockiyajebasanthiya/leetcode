@@ -1,0 +1,33 @@
+import java.io.*;
+import java.util.* ;
+
+import java.util.ArrayList;
+
+public class Solution {
+    public static void rotateMatrix(ArrayList<ArrayList<Integer>> mat, int n, int m) {
+        // Write your code here.
+        if (n == 0 || m == 0) return;
+
+        int top = 0, bottom = n - 1, left = 0, right = m - 1;
+        int prev;
+
+        while (top < bottom && left < right) {
+            prev = mat.get(top + 1).get(left); // Store the first element of the next row
+
+            for (int i = left; i <= right; i++) prev = swap(mat, top, i, prev); // Top row
+            top++;
+            for (int i = top; i <= bottom; i++) prev = swap(mat, i, right, prev); // Right column
+            right--;
+            for (int i = right; i >= left; i--) prev = swap(mat, bottom, i, prev); // Bottom row
+            bottom--;
+            for (int i = bottom; i >= top; i--) prev = swap(mat, i, left, prev); // Left column
+            left++;
+        }
+    }
+
+    private static int swap(ArrayList<ArrayList<Integer>> mat, int row, int col, int prev) {
+        int temp = mat.get(row).get(col);
+        mat.get(row).set(col, prev);
+        return temp;
+    }
+}
