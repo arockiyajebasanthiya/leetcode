@@ -1,0 +1,22 @@
+import java.util.*;
+public class Solution {
+    public static List< Integer > superiorElements(int []arr) {
+        // Write your code here.
+        List<Integer> arr1 = new ArrayList<>();
+        int size = arr.length;
+        int max_from_right =  arr[size-1];
+        arr1.add(max_from_right);
+ 
+        /* Rightmost element is always leader */
+     
+        for (int i = size-2; i >= 0; i--)
+        {
+            if (max_from_right < arr[i])
+            {           
+            max_from_right = arr[i];
+            arr1.add(max_from_right);
+            }
+        } 
+        return arr1;   
+    }
+}
