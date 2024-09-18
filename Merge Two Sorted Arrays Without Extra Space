@@ -1,0 +1,26 @@
+import java.util.*;
+public class Solution {
+    public static void mergeTwoSortedArraysWithoutExtraSpace(long []a, long []b){
+        // Write your code here.
+        int n = a.length + b.length;
+        int i =0,j;
+        long[] arr = new long[n];
+        for(long num : a)
+        {
+           arr[i++] = num;
+        }
+        for(long num : b)
+        {
+           arr[i++] = num;
+        }
+        Arrays.sort(arr);
+        for(j = 0;j < a.length;j++ )
+        {
+            a[j] = arr[j];
+        }
+        for(int k = 0;k < b.length;k++ )
+        {
+            b[k] = arr[j++];
+        }
+    }
+}
