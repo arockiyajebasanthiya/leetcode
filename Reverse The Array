@@ -1,0 +1,44 @@
+Given an array/list 'ARR' of integers and a position ‘M’. You have to reverse the array after that position.
+
+Example:
+
+We have an array ARR = {1, 2, 3, 4, 5, 6} and M = 3 , considering 0 
+based indexing so the subarray {5, 6} will be reversed and our 
+output array will be {1, 2, 3, 4, 6, 5}.
+
+
+
+import java.util.* ;
+import java.io.*; 
+import java.util.ArrayList;
+
+public class Solution 
+{
+    public static void reverseArray(ArrayList<Integer> al, int m)
+    {
+        // Write your code here.
+        int n = al.size();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++)
+            arr[i] = al.get(i);
+        al.clear();
+        swap(arr,m+1,n-1);
+        for(int i : arr)
+        {
+            al.add(i);
+        }
+    }
+    public static void swap(int[] arr,int start , int end)
+    {
+        while(start < end)
+        {
+        int temp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
+        start++;
+        end--;
+        }
+        
+
+    }
+}
