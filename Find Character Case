@@ -1,0 +1,18 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+    public static int findCase(char ch) {
+        // Write your code here.
+        if(Character.isUpperCase(ch))
+        {
+            return 1;
+        }
+        else if(Character.isLowerCase(ch))
+        {
+            return 0;
+        }
+        else{
+            return -1;
+        }
+    }
+}
