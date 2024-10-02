@@ -1,0 +1,27 @@
+int sz = arr.size();
+        
+        // Perform the operations exactly sz/2 times
+        for (int k = 1; k <= sz / 2; k++) {
+            // Rotate the array by 1 position clockwise
+            rotateClockwise(arr);
+            
+            // Current size of the array
+            int currentSize = arr.size();
+            
+            // Calculate the (n - k + 1)th element to be deleted (0-based index)
+            int deleteIndex = currentSize - k;
+            
+            // Remove the calculated element
+            arr.remove(deleteIndex);
+        }
+        
+        // Return the first remaining element in the array
+        return arr.get(0);
+    }
+
+    // Function to rotate the array clockwise by moving the last element to the front
+    private static void rotateClockwise(ArrayList<Integer> list) {
+        // Remove the last element and add it at the front
+        int lastElement = list.remove(list.size() - 1);
+        list.add(0, lastElement);
+    }
